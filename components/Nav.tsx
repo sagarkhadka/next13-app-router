@@ -7,18 +7,18 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { sign } from 'crypto'
 
 const Nav = () => {
-  const isUserLoggedIn = true
+  const { data: session } = useSession()
 
   const [providers, setProviders] = useState(null)
   const [toggleDropDown, setToggleDropDown] = useState<boolean>(false)
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders()
 
       setProviders(response)
     }
-    setProviders()
+    setUpProviders()
   }, [])
 
   return (
@@ -38,7 +38,7 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <div className='sm:flex hidden'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link
               href='/create-prompt'
@@ -83,7 +83,7 @@ const Nav = () => {
 
       {/* Mobile nav */}
       <div className='sm:hidden flex relative'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
               src='/assets/images/logo.svg'
