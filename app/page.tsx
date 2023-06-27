@@ -1,15 +1,12 @@
+// import { Accordion } from '@components/ui/accordion'
+
 const page = () => {
   return (
     <section className='w-full flex-center flex-col'>
-      <h1 className='text-3xl font-semibold text-center'>
-        Discover & Share
-        <br className='max-md:hidden' />
-        <span className='orange_gradient text-center'> AI-Powered Prompts</span>
-      </h1>
-      <p className='desc text-center'>
-        Promptopia is an open-source AI prompting tool for modern world to discover, create and
-        share creative prompts.
-      </p>
+      <h2 className='scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+        The People of the Kingdom
+      </h2>
+      {/* <Accordion /> */}
     </section>
   )
 }
