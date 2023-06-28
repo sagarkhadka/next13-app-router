@@ -16,6 +16,10 @@ module.exports = {
       }
     },
     extend: {
+      fontFamily: {
+        manrope: ['Manrope', 'sans-serif'],
+        sora: ['Sora', 'sans-serif']
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
