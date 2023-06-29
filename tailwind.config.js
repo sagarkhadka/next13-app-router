@@ -12,10 +12,15 @@ module.exports = {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px'
+        '2xl': '1536px'
       }
     },
     extend: {
+      colors: {
+        dark: '#1a1c20',
+        'ash-gray': '#edeff1',
+        'light-gray': '#9598a4'
+      },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
         sora: ['Sora', 'sans-serif']

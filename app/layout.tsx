@@ -1,9 +1,10 @@
 import '@styles/global.css'
 import { Manrope, Sora } from '@next/font/google'
+import PageHeader from '@components/PageHeader'
 
 const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '600', '700'],
   variable: '--manrope'
 })
 
@@ -14,8 +15,8 @@ const sora = Sora({
 })
 
 export const metadata = {
-  title: 'Promtopia',
-  description: 'Discover and share the prompts'
+  title: 'Sagar Khadka',
+  description: 'Frontend developer with experience in UI design as well'
 }
 
 interface RootLayoutProps {
@@ -37,7 +38,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         `}
       </style> */}
 
-      <body className='font-manrope'>{children}</body>
+      <body className='font-manrope'>
+        <PageHeader />
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
