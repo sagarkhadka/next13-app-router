@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const MainHero = () => {
@@ -20,11 +21,20 @@ const MainHero = () => {
             </div>
           </div>
         </div>
-        <div className='absolute bg-[#ef778f] aspect-square h-56 rounded-full blur-3xl -z-10 top-[150px] right-[500px]' />
+        <div className='absolute'>
+          <Image
+            src='/assets/images/layer-blur.svg'
+            alt=''
+            height={200}
+            width={200}
+            className='object-contain'
+          />
+        </div>
+        {/* <div className='absolute bg-[#ef778f] aspect-square h-56 rounded-full blur-3xl -z-10 top-[150px] right-[500px]' />
         <div className='absolute bg-[#aebfda] aspect-square h-72 rounded-full blur-3xl -z-10 top-[170px] right-[200px]' />
         <div className='absolute bg-[#b5b0e6] aspect-square h-96 rounded-full blur-3xl -z-20 top-[300px] right-[400px]' />
         <div className='absolute bg-[#f8c4ad] aspect-square h-80 rounded-full blur-3xl -z-20 top-[320px] right-[200px]' />
-        <div className='absolute '></div>
+        <div className='absolute '></div> */}
       </section>
     </>
   )
