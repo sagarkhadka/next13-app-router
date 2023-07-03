@@ -1,4 +1,5 @@
 import MainHero from '@components/MainHero'
+import MyWorks from '@components/MyWorks'
 
 export const metadata = {
   title: 'Sagar Khadka',
@@ -9,6 +10,7 @@ const page = () => {
   return (
     <>
       <MainHero />
+      <MyWorks />
     </>
   )
 }
