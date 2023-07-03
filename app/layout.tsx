@@ -1,6 +1,12 @@
-import '@styles/global.css'
+'use client'
+
+import { useEffect } from 'react'
 import { Manrope, Sora } from '@next/font/google'
+import { gsap } from 'gsap'
+import MouseFollower from 'mouse-follower'
+
 import PageHeader from '@components/PageHeader'
+import '@styles/global.scss'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -23,7 +29,15 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
+MouseFollower.registerGSAP(gsap)
+
 const RootLayout = ({ children }: RootLayoutProps) => {
+  useEffect(() => {
+    const cursor = new MouseFollower()
+
+    return () => cursor.destroy()
+  }, [])
+
   return (
     <html
       lang='en'
@@ -38,7 +52,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         `}
       </style> */}
 
-      <body className='font-manrope'>
+      <body className='font-sora'>
         <PageHeader />
         <main>{children}</main>
       </body>

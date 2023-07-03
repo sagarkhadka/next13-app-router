@@ -1,0 +1,29 @@
+@import '/node_modules/mouse-follower/src/scss/index.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-ash-gray;
+}
+
+.mf-cursor {
+  // @apply text-emerald-600;
+
+  @media screen and (max-width: 900px) {
+    @apply hidden;
+  }
+}
+
+.-md {
+  &::before {
+    transform: scale(1);
+  }
+}
+
+.-lg {
+  &:before {
+    transform: scale(1.3);
+  }
+}
