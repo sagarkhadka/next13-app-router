@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Manrope, Sora } from '@next/font/google'
+import { Manrope, Sora } from 'next/font/google'
 import { gsap } from 'gsap'
 import MouseFollower from 'mouse-follower'
 

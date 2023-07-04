@@ -26,10 +26,20 @@ const MainHero = () => {
                 <h5>My Tech Stack</h5>
                 <div className='grid grid-cols-3 place-items-center gap-10'>
                   <div
-                    data-cursor-text='Next Js'
-                    className='relative aspect-video h-10'>
+                    data-cursor-text='React Js'
+                    className='relative aspect-video h-14 cursor-pointer'>
                     <Image
-                      src='/assets/images/nextjs.png'
+                      src='/assets/images/react.svg'
+                      alt=''
+                      fill
+                      className='object-contain'
+                    />
+                  </div>
+                  <div
+                    data-cursor-text='Next Js'
+                    className='relative aspect-video h-14 cursor-pointer'>
+                    <Image
+                      src='/assets/images/next-js.svg'
                       alt=''
                       fill
                       className='object-contain'
@@ -37,7 +47,7 @@ const MainHero = () => {
                   </div>
                   <div
                     data-cursor-text='Tailwind CSS'
-                    className='relative aspect-video h-10'>
+                    className='relative aspect-video h-10 cursor-pointer'>
                     <Image
                       src='/assets/images/tailwindcss.svg'
                       alt=''
@@ -47,7 +57,7 @@ const MainHero = () => {
                   </div>
                   <div
                     data-cursor-text='GSAP'
-                    className='relative aspect-video h-10'>
+                    className='relative aspect-video h-14 cursor-pointer'>
                     <Image
                       src='/assets/images/gsap-greensock.svg'
                       alt=''
@@ -57,9 +67,19 @@ const MainHero = () => {
                   </div>
                   <div
                     data-cursor-text='Redux Toolkit'
-                    className='relative aspect-video h-10'>
+                    className='relative aspect-video h-12 cursor-pointer'>
                     <Image
                       src='/assets/images/redux.svg'
+                      alt=''
+                      fill
+                      className='object-contain'
+                    />
+                  </div>
+                  <div
+                    data-cursor-text='SASS/ SCSS'
+                    className='relative aspect-video h-12 cursor-pointer'>
+                    <Image
+                      src='/assets/images/sass.svg'
                       alt=''
                       fill
                       className='object-contain'

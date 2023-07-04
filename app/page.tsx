@@ -1,3 +1,4 @@
+import AboutMe from '@components/AboutMe'
 import MainHero from '@components/MainHero'
 import MyWorks from '@components/MyWorks'
 
@@ -10,6 +11,7 @@ const page = () => {
   return (
     <>
       <MainHero />
+      <AboutMe />
       <MyWorks />
     </>
   )
