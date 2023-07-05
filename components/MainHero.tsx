@@ -5,8 +5,8 @@ const MainHero = () => {
   return (
     <>
       <section className='relative isolate overflow-hidden'>
-        <div className='container'>
-          <div className='flex h-full min-h-screen items-center'>
+        <div className='container pt-24'>
+          <div className='flex min-h-screen flex-col items-center gap-16 md:h-full md:flex-row'>
             <div className='space-y-8'>
               <div className='sm:max-w-[75ch]'>
                 <h1 className='font-manrope text-6xl font-semibold leading-tight text-dark'>
@@ -21,8 +21,8 @@ const MainHero = () => {
                 </p>
               </div>
             </div>
-            <div className='flex flex-grow items-center justify-center'>
-              <div className='space-y-6'>
+            <div className='flex w-full justify-center md:flex-grow md:items-center'>
+              <div className='w-full space-y-6'>
                 <h5>My Tech Stack</h5>
                 <div className='grid grid-cols-3 place-items-center gap-10'>
                   <div
