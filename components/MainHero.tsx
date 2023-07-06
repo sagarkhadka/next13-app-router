@@ -5,7 +5,7 @@ const MainHero = () => {
   return (
     <>
       <section className='relative isolate overflow-hidden'>
-        <div className='container pt-24'>
+        <div className='container pt-24 md:pt-0'>
           <div className='flex min-h-screen flex-col items-center gap-16 md:h-full md:flex-row'>
             <div className='space-y-8'>
               <div className='sm:max-w-[75ch]'>
@@ -21,7 +21,7 @@ const MainHero = () => {
                 </p>
               </div>
             </div>
-            <div className='flex w-full justify-center md:flex-grow md:items-center'>
+            <div className='flex w-full justify-center md:w-fit md:flex-grow md:items-center'>
               <div className='w-full space-y-6'>
                 <h5>My Tech Stack</h5>
                 <div className='grid grid-cols-3 place-items-center gap-10'>
