@@ -7,41 +7,51 @@ import SplitType from 'split-type'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
+// gsap types
+import { GSAPTimeline } from 'gsap'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const MainHero = () => {
   let headingRef = useRef<HTMLHeadingElement | null>(null)
+  let infoRef = useRef<HTMLHeadingElement | null>(null)
 
   useLayoutEffect(() => {
-    if (headingRef.current) {
+    if (headingRef.current && infoRef.current) {
       const heading = SplitType.create(headingRef.current, {
-        types: 'chars, words'
+        types: 'chars, words, lines',
+        lineClass: 'banner_line'
       })
+
+      const info = SplitType.create(infoRef.current, {
+        types: 'chars, words, lines'
+      })
+
+      const ctx = gsap.context(() => {
+        const headingWord = gsap.utils.toArray('.word')
+
+        const tl: GSAPTimeline = gsap.timeline()
+        tl.from(heading.words, {
+          y: 80,
+          autoAlpha: 0,
+          duration: 1,
+          ease: 'power4',
+          stagger: '0.05'
+        }).from(
+          info.words,
+          {
+            y: 100,
+            autoAlpha: 0,
+            duration: 1,
+            ease: 'power4',
+            stagger: 0.04
+          },
+          '-=0.8'
+        )
+      }, headingRef)
+
+      return () => ctx.revert()
     }
-
-    const ctx = gsap.context(() => {
-      const headingWord = gsap.utils.toArray('.word')
-
-      const tl = gsap.timeline()
-      tl.from(headingRef.current?.children, {
-        y: 80,
-        autoAlpha: 0,
-        duration: 1,
-        ease: 'power4',
-        stagger: '0.05'
-      })
-      // headingWord.forEach((word: any) => {
-      //   tl.from(word, {
-      //     y: 80,
-      //     autoAlpha: 0,
-      //     duration: 0.2,
-      //     ease: 'power4'
-      //     // stagger: 0.01
-      //   })
-      // })
-    }, headingRef)
-
-    return () => ctx.revert()
   }, [])
 
   return (
@@ -52,20 +62,26 @@ const MainHero = () => {
             <div className='space-y-8'>
               <div className='sm:max-w-[75ch]'>
                 <h1
+                  data-scroll
+                  data-scroll-speed='0.3'
                   ref={headingRef}
-                  className='head font-manrope text-6xl font-semibold leading-tight text-dark'>
+                  className='head font-manrope text-6xl font-bold leading-tight text-dark'>
                   A frontend developer passionate about creating beautiful user friendly UI
                 </h1>
               </div>
               <div className='sm:max-w-[60ch]'>
-                <p className='text-xl text-light-gray'>
+                <p
+                  data-scroll
+                  data-scroll-speed='0.1'
+                  ref={infoRef}
+                  className='relative text-xl text-light-gray'>
                   Hi, I'm Sagar Khadka, a passionate Front-End React Developer based in Nepal. With
                   my knowledge of UI design and frontend development I can create good looking,
                   responsive and user friendly sites.
                 </p>
               </div>
             </div>
-            <div className='flex w-full justify-center md:w-fit md:flex-grow md:items-center'>
+            {/* <div className='flex w-full justify-center md:w-fit md:flex-grow md:items-center'>
               <div className='w-full space-y-6'>
                 <h5>My Tech Stack</h5>
                 <div className='grid grid-cols-3 place-items-center gap-10'>
@@ -131,7 +147,7 @@ const MainHero = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className='absolute right-0 top-10 -z-10'>
@@ -143,11 +159,6 @@ const MainHero = () => {
             className='object-contain'
           />
         </div>
-        {/* <div className='absolute right-[500px] top-[150px] -z-10 aspect-square h-56 rounded-full bg-[#ef778f] blur-3xl' />
-        <div className='absolute right-[200px] top-[170px] -z-10 aspect-square h-72 rounded-full bg-[#aebfda] blur-3xl' />
-        <div className='absolute right-[400px] top-[300px] -z-20 aspect-square h-96 rounded-full bg-[#b5b0e6] blur-3xl' />
-        <div className='absolute right-[200px] top-[320px] -z-20 aspect-square h-80 rounded-full bg-[#f8c4ad] blur-3xl' />
-        <div className='absolute '></div> */}
       </section>
     </>
   )

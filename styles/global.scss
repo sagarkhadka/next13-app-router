@@ -28,6 +28,13 @@ body {
   }
 }
 
-// .-text {
-//   @apply -z-50;
-// }
+.line {
+  // @apply outline;
+
+  overflow: hidden !important;
+  line-height: 28px;
+}
+
+.banner_line {
+  @apply overflow-hidden;
+}
