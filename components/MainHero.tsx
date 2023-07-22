@@ -1,7 +1,49 @@
+'use client'
+
+import { useLayoutEffect, useRef } from 'react'
 import Image from 'next/image'
 import React from 'react'
+import SplitType from 'split-type'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const MainHero = () => {
+  let headingRef = useRef<HTMLHeadingElement | null>(null)
+
+  useLayoutEffect(() => {
+    if (headingRef.current) {
+      const heading = SplitType.create(headingRef.current, {
+        types: 'chars, words'
+      })
+    }
+
+    const ctx = gsap.context(() => {
+      const headingWord = gsap.utils.toArray('.word')
+
+      const tl = gsap.timeline()
+      tl.from(headingRef.current?.children, {
+        y: 80,
+        autoAlpha: 0,
+        duration: 1,
+        ease: 'power4',
+        stagger: '0.05'
+      })
+      // headingWord.forEach((word: any) => {
+      //   tl.from(word, {
+      //     y: 80,
+      //     autoAlpha: 0,
+      //     duration: 0.2,
+      //     ease: 'power4'
+      //     // stagger: 0.01
+      //   })
+      // })
+    }, headingRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <>
       <section className='relative isolate overflow-hidden'>
@@ -9,7 +51,9 @@ const MainHero = () => {
           <div className='flex min-h-screen flex-col items-center gap-16 md:h-full md:flex-row'>
             <div className='space-y-8'>
               <div className='sm:max-w-[75ch]'>
-                <h1 className='font-manrope text-6xl font-semibold leading-tight text-dark'>
+                <h1
+                  ref={headingRef}
+                  className='head font-manrope text-6xl font-semibold leading-tight text-dark'>
                   A frontend developer passionate about creating beautiful user friendly UI
                 </h1>
               </div>

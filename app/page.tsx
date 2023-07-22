@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect } from 'react'
 import AboutMe from '@components/AboutMe'
 import MainHero from '@components/MainHero'
 import MyWorks from '@components/MyWorks'
@@ -8,6 +11,13 @@ export const metadata = {
 }
 
 const page = () => {
+  useEffect(() => {
+    ;(async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default
+      const locomotiveScroll = new LocomotiveScroll()
+    })()
+  }, [])
+
   return (
     <>
       <MainHero />
