@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Button } from './ui/button'
+import { ThemeChanger } from './ThemeChanger'
 
 const PageHeader = () => {
   return (
@@ -9,7 +10,7 @@ const PageHeader = () => {
         <div className='container flex justify-between'>
           <h3
             data-cursor='-inverse -md -exclusion'
-            className='cursor-pointer text-2xl font-semibold tracking-tight'>
+            className='cursor-pointer text-2xl font-semibold tracking-tight dark:text-text'>
             Sagar
           </h3>
           <ul className='flex items-center gap-16 font-sora'>
@@ -22,6 +23,9 @@ const PageHeader = () => {
               data-cursor='-inverse -md -exclusion'
               className='cursor-pointer hover:text-dark hover:underline'>
               LinkedIn
+            </li>
+            <li>
+              <ThemeChanger />
             </li>
             <li>
               <Button

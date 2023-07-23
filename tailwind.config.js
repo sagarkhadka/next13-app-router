@@ -19,7 +19,12 @@ module.exports = {
       colors: {
         dark: '#1a1c20',
         'ash-gray': '#edeff1',
-        'light-gray': '#9598a4'
+        'light-gray': '#9598a4',
+        text: '#fafafa',
+        background: '#050505',
+        primary: '#c6b4e4',
+        secondary: '#160e25',
+        accent: '#aa8ed7'
       },
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],

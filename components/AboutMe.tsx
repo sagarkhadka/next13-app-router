@@ -5,9 +5,6 @@ import SplitType from 'split-type'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-// gsap types
-import { GSAPTimeline } from 'gsap'
-
 gsap.registerPlugin(ScrollTrigger)
 
 const AboutMe = () => {
@@ -18,30 +15,29 @@ const AboutMe = () => {
       const description = SplitType.create(paraRef.current, {
         types: 'words, chars'
       })
+      const ctx = gsap.context(() => {
+        const tl: GSAPTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: paraRef.current,
+            start: 'top bottom-=200px',
+            end: 'bottom top+=300px',
+            toggleActions: 'play none none reset',
+            scrub: 1,
+            markers: false
+          }
+        })
+
+        tl.from(description.chars, {
+          x: -80,
+          autoAlpha: 0,
+          duration: 1,
+          ease: 'power4',
+          stagger: 0.01
+        })
+      }, paraRef)
+
+      return () => ctx.revert()
     }
-
-    const ctx = gsap.context(() => {
-      const tl: GSAPTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: paraRef.current,
-          start: 'top bottom-=200px',
-          end: 'bottom top+=300px',
-          toggleActions: 'play none none reset',
-          scrub: 1,
-          markers: true
-        }
-      })
-
-      tl.from(paraRef.current?.children, {
-        x: -80,
-        autoAlpha: 0,
-        duration: 1,
-        ease: 'power4',
-        stagger: 0.01
-      })
-    }, paraRef)
-
-    return () => ctx.revert()
   }, [])
 
   return (

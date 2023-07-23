@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-ash-gray;
+  @apply bg-ash-gray dark:bg-black;
 }
 
 .mf-cursor {

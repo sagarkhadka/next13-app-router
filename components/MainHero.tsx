@@ -1,14 +1,10 @@
 'use client'
 
 import { useLayoutEffect, useRef } from 'react'
-import Image from 'next/image'
 import React from 'react'
 import SplitType from 'split-type'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-
-// gsap types
-import { GSAPTimeline } from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,15 +24,13 @@ const MainHero = () => {
       })
 
       const ctx = gsap.context(() => {
-        const headingWord = gsap.utils.toArray('.word')
-
         const tl: GSAPTimeline = gsap.timeline()
         tl.from(heading.words, {
           y: 80,
           autoAlpha: 0,
           duration: 1,
           ease: 'power4',
-          stagger: '0.05'
+          stagger: 0.05
         }).from(
           info.words,
           {
@@ -44,10 +38,19 @@ const MainHero = () => {
             autoAlpha: 0,
             duration: 1,
             ease: 'power4',
-            stagger: 0.04
+            stagger: 0.01
           },
           '-=0.8'
         )
+        // .from(
+        //   '.react',
+        //   {
+        //     x: -60,
+        //     autoAlpha: 0,
+        //     ease: 'back.out'
+        //   },
+        //   '-=1'
+        // )
       }, headingRef)
 
       return () => ctx.revert()
@@ -65,7 +68,7 @@ const MainHero = () => {
                   data-scroll
                   data-scroll-speed='0.3'
                   ref={headingRef}
-                  className='head font-manrope text-6xl font-bold leading-tight text-dark'>
+                  className='head font-manrope text-6xl font-bold leading-tight text-dark dark:text-primary'>
                   A frontend developer passionate about creating beautiful user friendly UI
                 </h1>
               </div>
@@ -75,12 +78,78 @@ const MainHero = () => {
                   data-scroll-speed='0.1'
                   ref={infoRef}
                   className='relative text-xl text-light-gray'>
-                  Hi, I'm Sagar Khadka, a passionate Front-End React Developer based in Nepal. With
-                  my knowledge of UI design and frontend development I can create good looking,
+                  Hi, I&apos;m Sagar Khadka, a passionate Front-End React Developer based in Nepal.
+                  With my knowledge of UI design and frontend development I can create good looking,
                   responsive and user friendly sites.
                 </p>
               </div>
             </div>
+            {/* <div
+              data-scroll
+              data-scroll-speed='0.04'
+              className='next absolute right-44 top-1/2 aspect-video h-14 cursor-pointer'>
+              <Image
+                src='/assets/images/next-js.svg'
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed='0.1'
+              className='absolute left-24 top-64 aspect-video h-16 cursor-pointer'>
+              <Image
+                src='/assets/images/react.svg'
+                alt=''
+                fill
+                className='react object-contain'
+              />
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed='0.1'
+              className='tailwind absolute left-1/3 top-24 aspect-video h-10 cursor-pointer'>
+              <Image
+                src='/assets/images/tailwindcss.svg'
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed='0.3'
+              className='gsap absolute bottom-28 right-64 aspect-video h-20 cursor-pointer'>
+              <Image
+                src='/assets/images/gsap-greensock.svg'
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed='0.6'
+              className='redux absolute bottom-16 left-72 aspect-video h-12 cursor-pointer'>
+              <Image
+                src='/assets/images/redux.svg'
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed='0.2'
+              className='sass absolute right-64 top-28 aspect-video h-12 cursor-pointer'>
+              <Image
+                src='/assets/images/sass.svg'
+                alt=''
+                fill
+                className='object-contain'
+              />
+            </div> */}
             {/* <div className='flex w-full justify-center md:w-fit md:flex-grow md:items-center'>
               <div className='w-full space-y-6'>
                 <h5>My Tech Stack</h5>
@@ -150,7 +219,7 @@ const MainHero = () => {
             </div> */}
           </div>
         </div>
-        <div className='absolute right-0 top-10 -z-10'>
+        {/* <div className='absolute right-0 top-10 -z-10'>
           <Image
             src='/assets/images/layer-blur.svg'
             alt=''
@@ -158,7 +227,7 @@ const MainHero = () => {
             width={550}
             className='object-contain'
           />
-        </div>
+        </div> */}
       </section>
     </>
   )
