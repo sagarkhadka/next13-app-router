@@ -8,16 +8,15 @@ interface cardProps {
   title: string
   link: string
   tag: string
+  pointerTitle: string
 }
 
-const WorkCard = ({ imagePath, title, link, tag }: cardProps) => {
+const WorkCard = ({ imagePath, title, link, tag, pointerTitle }: cardProps) => {
   return (
     <>
-      <Link
-        href={`${link}`}
-        target='_blank'>
+      <Link href={`${link}`} target='_blank'>
         <div
-          data-cursor-text={title}
+          data-cursor-text={pointerTitle}
           className='group cursor-pointer space-y-10'>
           <div className='relative isolate h-[30rem] w-full overflow-hidden rounded-3xl p-4 shadow-xl'>
             <Image
@@ -27,7 +26,7 @@ const WorkCard = ({ imagePath, title, link, tag }: cardProps) => {
               className='-z-10 scale-105 object-cover duration-200 group-hover:scale-100'
             />
             <div className='z-10 w-fit rounded-full bg-white px-4 py-2 shadow-xl'>
-              <p className='text-sm font-semibold'>{tag}</p>
+              <p className='text-sm font-semibold text-dark'>{tag}</p>
             </div>
           </div>
           <div className='relative flex items-center justify-between'>

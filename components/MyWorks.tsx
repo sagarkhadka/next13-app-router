@@ -17,6 +17,7 @@ const MyWorks = () => {
                   title={items.title}
                   link={items.link}
                   tag={items.tag}
+                  pointerTitle={items.cursorTitle}
                 />
               </div>
             </React.Fragment>

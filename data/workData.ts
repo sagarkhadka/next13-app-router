@@ -4,7 +4,8 @@ export const workData = [
     title: 'ATEC',
     link: 'https://dribbble.com/shots/17603561-UI-Design-for-ATEC?utm_source=Clipboard_Shot&utm_campaign=sagarkdk&utm_content=UI%20Design%20for%20ATEC&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=sagarkdk&utm_content=UI%20Design%20for%20ATEC&utm_medium=Social_Share',
     imgPath: '/assets/images/works/atec.webp',
-    tag: 'UI Design'
+    tag: 'UI Design',
+    cursorTitle: 'ATEC'
   },
 
   {
@@ -12,6 +13,7 @@ export const workData = [
     title: 'Webor Electronic',
     link: 'https://webor-sagarkhadka.vercel.app/',
     imgPath: '/assets/images/works/webor.png',
-    tag: 'Web Development'
+    tag: 'Web Development',
+    cursorTitle: 'Webor'
   }
 ]
