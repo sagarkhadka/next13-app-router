@@ -8,6 +8,12 @@ body {
   @apply bg-ash-gray dark:bg-black;
 }
 
+@layer base {
+  .section-heading {
+    @apply py-1 text-3xl font-semibold;
+  }
+}
+
 .mf-cursor {
   // @apply text-emerald-600;
 

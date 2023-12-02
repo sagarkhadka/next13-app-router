@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import { useIsomorphicLayoutEffect } from '@utils/isomorphicLayout'
+import AnimatedHeading from './animations/AnimatedHeading'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,16 +23,16 @@ const AboutMe = () => {
         const tl: GSAPTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: paraRef.current,
-            start: 'top bottom-=150px',
+            start: 'top bottom-=100px',
             end: 'bottom top',
-            toggleActions: 'play none none reset',
+            toggleActions: 'play none none reverse',
             scrub: 1,
             markers: false
           }
         })
 
         tl.from(description.chars, {
-          x: -5,
+          // x: -5,
           autoAlpha: 0,
           duration: 1,
           ease: 'power4',
@@ -46,12 +47,12 @@ const AboutMe = () => {
   return (
     <>
       <section className='container py-20'>
-        <h2 className='mb-6 text-3xl font-semibold text-light-gray'>
-          About Me
-        </h2>
+        <AnimatedHeading>
+          <h2 className='section-heading'>About Me</h2>
+        </AnimatedHeading>
         <p
           ref={paraRef}
-          className='font-manrope text-5xl font-semibold leading-snug text-dark dark:text-light-gray md:text-6xl'>
+          className='mt-6 font-manrope text-5xl font-semibold leading-snug text-dark dark:text-light-gray md:text-6xl'>
           As a former UI designer who turned frontend developer, I possess a
           unique blend of skills that allows me to create clean and visually
           appealing UI designs and seamlessly translate them into code. With my
