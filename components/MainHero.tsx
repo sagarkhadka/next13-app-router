@@ -5,6 +5,7 @@ import React from 'react'
 import SplitType from 'split-type'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -12,22 +13,23 @@ const MainHero = () => {
   let headingRef = useRef<HTMLHeadingElement | null>(null)
   let infoRef = useRef<HTMLHeadingElement | null>(null)
 
-  useLayoutEffect(() => {
-    if (headingRef.current && infoRef.current) {
-      const heading = SplitType.create(headingRef.current, {
-        types: 'chars, words, lines',
-        lineClass: 'banner_line'
-      })
+  useGSAP(
+    () => {
+      if (headingRef.current && infoRef.current) {
+        const heading = SplitType.create(headingRef.current, {
+          types: 'chars, words, lines',
+          lineClass: 'banner_line'
+        })
 
-      const info = SplitType.create(infoRef.current, {
-        types: 'chars, words, lines'
-      })
+        const info = SplitType.create(infoRef.current, {
+          types: 'chars, words, lines'
+        })
 
-      const ctx = gsap.context(() => {
         const tl: GSAPTimeline = gsap.timeline()
+
         tl.from(heading.words, {
           y: 80,
-          autoAlpha: 0,
+          autoALpha: 0,
           duration: 1,
           ease: 'power4',
           stagger: 0.05
@@ -42,34 +44,28 @@ const MainHero = () => {
           },
           '-=0.8'
         )
-        // .from(
-        //   '.react',
-        //   {
-        //     x: -60,
-        //     autoAlpha: 0,
-        //     ease: 'back.out'
-        //   },
-        //   '-=1'
-        // )
-      }, headingRef)
-
-      return () => ctx.revert()
+      }
+    },
+    {
+      scope: '.wrapper'
     }
-  }, [])
+  )
 
   return (
     <>
       <section className='relative isolate overflow-hidden'>
         <div className='container pt-24 md:pt-0'>
-          <div className='flex min-h-screen flex-col items-center gap-16 md:h-full md:flex-row'>
+          <div className='wrapper flex min-h-screen flex-col items-center gap-16 md:h-full md:flex-row'>
             <div className='space-y-8'>
               <div className='sm:max-w-[75ch]'>
                 <h1
                   data-scroll
-                  data-scroll-speed='0.3'
+                  data-scroll-speed='0.05'
                   ref={headingRef}
-                  className='head font-manrope text-6xl font-bold leading-tight text-dark dark:text-primary'>
-                  A frontend developer passionate about creating beautiful user friendly UI
+                  className='head font-manrope text-6xl font-bold leading-tight text-dark dark:text-primary'
+                >
+                  A frontend developer passionate about creating beautiful user
+                  friendly UI
                 </h1>
               </div>
               <div className='sm:max-w-[60ch]'>
@@ -77,10 +73,12 @@ const MainHero = () => {
                   data-scroll
                   data-scroll-speed='0.1'
                   ref={infoRef}
-                  className='relative text-xl text-light-gray'>
-                  Hi, I&apos;m Sagar Khadka, a passionate Front-End React Developer based in Nepal.
-                  With my knowledge of UI design and frontend development I can create good looking,
-                  responsive and user friendly sites.
+                  className='relative text-xl text-light-gray'
+                >
+                  Hi, I&apos;m Sagar Khadka, a passionate Front-End React
+                  Developer based in Nepal. With my knowledge of UI design and
+                  frontend development I can create good looking, responsive and
+                  user friendly sites.
                 </p>
               </div>
             </div>

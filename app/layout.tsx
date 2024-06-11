@@ -29,12 +29,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
       lang='en'
-      className={`${manrope.variable} ${sora.variable} font-sans`}>
+      className={`${manrope.variable} ${sora.variable} font-sans`}
+    >
       <body className='font-sora'>
-        <Provider
-          attribute='class'
-          defaultTheme='light'
-          enableSystem>
+        <Provider attribute='class' defaultTheme='light' enableSystem>
           <PageHeader />
           <main>{children}</main>
         </Provider>

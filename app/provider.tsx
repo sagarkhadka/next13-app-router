@@ -2,9 +2,10 @@
 
 import React, { useEffect } from 'react'
 import { ThemeProvider } from 'next-themes'
-import { type ThemeProviderProps } from 'next-themes/dist/types'
 import { gsap } from 'gsap'
 import MouseFollower from 'mouse-follower'
+
+import { type ThemeProviderProps } from 'next-themes/dist/types'
 
 MouseFollower.registerGSAP(gsap)
 

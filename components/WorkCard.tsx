@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { MoveUpRight } from 'lucide-react'
 import Link from 'next/link'
@@ -17,7 +16,8 @@ const WorkCard = ({ imagePath, title, link, tag, pointerTitle }: cardProps) => {
       <Link href={`${link}`} target='_blank'>
         <div
           data-cursor-text={pointerTitle}
-          className='group cursor-pointer space-y-10'>
+          className='group cursor-pointer space-y-10'
+        >
           <div className='relative isolate h-[30rem] w-full overflow-hidden rounded-3xl p-4 shadow-xl'>
             <Image
               src={imagePath}

@@ -11,23 +11,27 @@ const PageHeader = () => {
         <div className='container flex justify-between'>
           <h3
             data-cursor='-inverse -md'
-            className='cursor-pointer text-2xl font-semibold tracking-tight dark:text-text'>
+            className='cursor-pointer text-2xl font-semibold tracking-tight dark:text-text'
+          >
             Sagar
           </h3>
           <ul className='flex items-center gap-16 font-sora'>
             <li
               data-cursor='-inverse -md'
-              className='cursor-pointer hover:underline'>
+              className='cursor-pointer hover:underline'
+            >
               <Link href='https://dribbble.com/sagarkdk' target='_blank'>
                 Dribbble
               </Link>
             </li>
             <li
               data-cursor='-inverse -md'
-              className='cursor-pointer hover:underline'>
+              className='cursor-pointer hover:underline'
+            >
               <Link
                 href='https://www.linkedin.com/in/sagar-khadka-1b636623a/'
-                target='_blank'>
+                target='_blank'
+              >
                 LinkedIn
               </Link>
             </li>
