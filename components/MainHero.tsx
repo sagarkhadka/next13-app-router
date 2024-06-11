@@ -13,43 +13,38 @@ const MainHero = () => {
   let headingRef = useRef<HTMLHeadingElement | null>(null)
   let infoRef = useRef<HTMLHeadingElement | null>(null)
 
-  useGSAP(
-    () => {
-      if (headingRef.current && infoRef.current) {
-        const heading = SplitType.create(headingRef.current, {
-          types: 'chars, words, lines',
-          lineClass: 'banner_line'
-        })
+  useGSAP(() => {
+    if (headingRef.current && infoRef.current) {
+      const heading = SplitType.create(headingRef.current, {
+        types: 'chars, words, lines',
+        lineClass: 'banner_line'
+      })
 
-        const info = SplitType.create(infoRef.current, {
-          types: 'chars, words, lines'
-        })
+      const info = SplitType.create(infoRef.current, {
+        types: 'chars, words, lines'
+      })
 
-        const tl: GSAPTimeline = gsap.timeline()
+      const tl: GSAPTimeline = gsap.timeline()
 
-        tl.from(heading.words, {
-          y: 80,
-          autoALpha: 0,
+      tl.from(heading.words, {
+        y: 80,
+        autoALpha: 0,
+        duration: 1,
+        ease: 'power4',
+        stagger: 0.05
+      }).from(
+        info.words,
+        {
+          y: 100,
+          autoAlpha: 0,
           duration: 1,
           ease: 'power4',
-          stagger: 0.05
-        }).from(
-          info.words,
-          {
-            y: 100,
-            autoAlpha: 0,
-            duration: 1,
-            ease: 'power4',
-            stagger: 0.01
-          },
-          '-=0.8'
-        )
-      }
-    },
-    {
-      scope: '.wrapper'
+          stagger: 0.01
+        },
+        '-=0.8'
+      )
     }
-  )
+  }, [])
 
   return (
     <>

@@ -13,35 +13,32 @@ gsap.registerPlugin(ScrollTrigger)
 const AboutMe = () => {
   const paraRef = useRef<HTMLParagraphElement | null>(null)
 
-  useGSAP(
-    () => {
-      if (paraRef.current) {
-        const description = SplitType.create(paraRef.current, {
-          types: 'words, chars',
-          wordClass: 'desc-word'
-        })
+  useGSAP(() => {
+    if (paraRef.current) {
+      const description = SplitType.create(paraRef.current, {
+        types: 'words, chars',
+        wordClass: 'desc-word'
+      })
 
-        const tl: GSAPTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: paraRef.current,
-            start: 'top bottom-=100px',
-            end: 'center top+=100px',
-            toggleActions: 'play none none reverse',
-            scrub: 2,
-            markers: false
-          }
-        })
+      const tl: GSAPTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: paraRef.current,
+          start: 'top bottom-=100px',
+          end: 'center top+=100px',
+          toggleActions: 'play none none reverse',
+          scrub: 2,
+          markers: false
+        }
+      })
 
-        tl.from(description.chars, {
-          autoAlpha: 0,
-          duration: 1,
-          ease: 'back.out(1.7)',
-          stagger: 0.01
-        })
-      }
-    },
-    { scope: '.para' }
-  )
+      tl.from(description.chars, {
+        autoAlpha: 0,
+        duration: 1,
+        ease: 'back.out(1.7)',
+        stagger: 0.01
+      })
+    }
+  }, [])
 
   return (
     <>
