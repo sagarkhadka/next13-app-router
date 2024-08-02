@@ -1,7 +1,7 @@
 'use client'
 
-import { useLayoutEffect, useRef } from 'react'
 import React from 'react'
+import { useRef } from 'react'
 import SplitType from 'split-type'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
